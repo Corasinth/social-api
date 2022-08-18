@@ -1,0 +1,29 @@
+{
+  "name": "social-api",
+  "version": "1.0.0",
+  "description": "## Description",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "devstart": "nodemon server.js" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Corasinth/social-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Corasinth/social-api/issues"
+  },
+  "homepage": "https://github.com/Corasinth/social-api#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.5.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
