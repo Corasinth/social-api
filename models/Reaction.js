@@ -1,5 +1,11 @@
 const {Schema, model} = require('mongoose');
 
+function dateFormatter(timestamp) {
+    let dateArray = new Date(timestamp).toString.split(' ')
+    return `${dateArray[1]} ${dateArray[2]}, ${dateArray[3]} at ${dateArray[4]}`
+
+}
+
 const reactionSchema = new Schema(
     {
         reactionId: {
@@ -18,7 +24,7 @@ const reactionSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now(),
-            get: new Date().toLocaleDateString()
+            get: dateFormatter
         }
     }, 
     {
@@ -29,4 +35,4 @@ const reactionSchema = new Schema(
     }
 )
 
-module.exports = reactionSchema;
+module.exports = {reactionSchema, dateFormatter};
