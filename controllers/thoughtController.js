@@ -11,7 +11,7 @@ async function findAllUsers (req, res) {
 
 async function findUser (req, res) {
     try {
-        let userData = await User.findById(req.params.userId)
+    
     } catch (err) {
         res.status(500).json(err);
     };

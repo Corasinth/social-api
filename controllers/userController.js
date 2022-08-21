@@ -28,6 +28,7 @@ async function findUser (req, res) {
     };
 };
 
+//Creates a new user
 async function createUser (req, res) {
     try {
         const userData = await User.create(req.body);
@@ -37,6 +38,8 @@ async function createUser (req, res) {
     };
 };
 
+
+// Updates a user
 async function updateUser (req, res) {
     try {
         const userData = await User.updateOne({_id: req.params.userId}, req.body);
@@ -46,6 +49,7 @@ async function updateUser (req, res) {
     };
 };
 
+// Deletes a user by their id, including their associated thoughts
 async function deleteUser (req, res) {
     try {
         const userData = await User.findById(req.params.userId)
@@ -58,18 +62,27 @@ async function deleteUser (req, res) {
     };
 };
 
+// Adds a friend by pushing the id to the friend array
 async function addFriend (req, res) {
     try {
-
+       const userData = await User.updateOne(
+        {_id: req.params.userId},
+        {$addToSet: {friends: req.params.friendId}}
+        ) 
+        res.status(200).json(userData)
     } catch (err) {
         res.status(500).json(err);
     };
 };
 
-
+//Removes a friend from friend array
 async function removeFriend (req, res) {
     try {
-
+       const userData = await User.updateOne(
+        {_id: req.params.userId},
+        {$pull: {friends: req.params.friendId}}
+        ) 
+        res.status(200).json(userData)
     } catch (err) {
         res.status(500).json(err);
     };
