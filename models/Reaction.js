@@ -1,9 +1,9 @@
 const {Schema, model} = require('mongoose');
 
+//Formats the timestamp
 function dateFormatter(timestamp) {
-    let dateArray = new Date(timestamp).toString.split(' ')
+    let dateArray = timestamp.toString().split(' ')
     return `${dateArray[1]} ${dateArray[2]}, ${dateArray[3]} at ${dateArray[4]}`
-
 }
 
 const reactionSchema = new Schema(

@@ -16,7 +16,7 @@ const thoughtSchema = new Schema(
         },
         username: {
             type: String,
-            required: [true, 'A user is required to have a thought'],
+            required: [true, 'A user is required to have the thought'],
         },
         reactions: [reactionSchema]
     },
